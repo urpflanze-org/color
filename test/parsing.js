@@ -1,5 +1,5 @@
 const tap = require('tap')
-const { parseColor } = require('../dist')
+const { parseColor, parseColorAndConvert } = require('../dist')
 
 tap.test('parsing', async t => {
 	t.deepEqual(
@@ -24,4 +24,18 @@ tap.test('parsing', async t => {
 
 	t.deepEqual(parseColor(0xff7700), { type: 'rgb', a: 255, b: 119, c: 0, alpha: 1 }, 'number')
 	t.deepEqual(parseColor(0xff7700cc), { type: 'rgb', a: 255, b: 119, c: 0, alpha: 204 / 255 }, 'number alpha')
+
+	tap.deepEqual(parseColorAndConvert('#ff0000'), { h: 0, s: 100, l: 50, r: 255, g: 0, b: 0, alpha: 1 }, 'convert hex')
+
+	tap.deepEqual(
+		parseColorAndConvert('hsl(20, 80%, 30%)'),
+		{ h: 20, s: 80, l: 30, r: 138, g: 56, b: 15, alpha: 1 },
+		'convert hsl'
+	)
+
+	tap.deepEqual(
+		parseColorAndConvert('rgba(255, 255, 255, 1)'),
+		{ r: 255, g: 255, b: 255, h: 0, s: 0, l: 100, alpha: 1 },
+		'convert rgb'
+	)
 })
