@@ -1,4 +1,16 @@
 /**
+ * Convert rgb to hex
+ *
+ * @param r number between 0 - 255
+ * @param g number between 0 - 255
+ * @param b number between 0 - 255
+ * @returns #ffffff
+ */
+export function rgbToHex(r: number, g: number, b: number): string {
+	return `#${((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1)}`
+}
+
+/**
  * Convert hsl (0-360, 0-100, 0-100) color to rgb(0-255, 0-255, 0-255)
  *
  * @param {number} h number between 0 - 360
