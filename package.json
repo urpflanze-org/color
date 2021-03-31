@@ -49,6 +49,7 @@
 	},
 	"publishConfig": {},
 	"devDependencies": {
+		"@types/tap": "^14.10.3",
 		"@typescript-eslint/eslint-plugin": "^4.16.1",
 		"eslint": "^7.21.0",
 		"eslint-config-prettier": "^8.1.0",
