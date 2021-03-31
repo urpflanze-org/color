@@ -1,5 +1,5 @@
-const tap = require('tap')
-const { parseColor, parseColorAndConvert } = require('../dist')
+import tap from 'tap'
+import { parseColor, parseColorAndConvert } from '../src'
 
 tap.test('parsing', async t => {
 	t.deepEqual(
@@ -37,5 +37,11 @@ tap.test('parsing', async t => {
 		parseColorAndConvert('rgba(255, 255, 255, 1)'),
 		{ r: 255, g: 255, b: 255, h: 0, s: 0, l: 100, alpha: 1 },
 		'convert rgb'
+	)
+
+	tap.deepEqual(
+		parseColorAndConvert('white'),
+		{ r: 255, g: 255, b: 255, h: 0, s: 0, l: 100, alpha: 1 },
+		'convert html color'
 	)
 })

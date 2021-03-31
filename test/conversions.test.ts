@@ -1,5 +1,5 @@
-const tap = require('tap')
-const { rgbToHsl, hslToRgb, rgbToHex } = require('../dist')
+import tap from 'tap'
+import { rgbToHsl, hslToRgb, rgbToHex } from '../src'
 
 tap.test('conversions', {}, async tap => {
 	tap.deepEqual(rgbToHsl(255, 0, 100), [336, 100, 50], 'rgb to hsl')
