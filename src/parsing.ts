@@ -1,3 +1,4 @@
+import htmlcolors from './htmlcolors'
 import { hslToRgb, rgbToHsl } from './conversions'
 import { IColor, IConvertedColor } from './types'
 
@@ -65,6 +66,8 @@ export function parseColor(color: string | number): IColor | undefined {
 	}
 
 	color = color.replace(/\s/g, '')
+
+	if (htmlcolors[color]) color = htmlcolors[color]
 
 	let match = /^#([0-9a-f]{3,8})$/i.exec(color)
 
