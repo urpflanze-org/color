@@ -18,7 +18,7 @@ const plugins = bProduction => [
 ]
 
 const umd = bProduction => ({
-	entry: './dist/cjs/browser/index.js',
+	entry: './dist/cjs/index.js',
 	output: {
 		filename: bProduction ? 'urpflanze-color.min.js' : 'urpflanze-color.js',
 		path: path.resolve('./build/umd'),
